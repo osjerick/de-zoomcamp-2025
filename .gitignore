@@ -208,3 +208,6 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Postgres data directories
+**/pg_data/*
