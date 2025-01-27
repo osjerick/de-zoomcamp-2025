@@ -200,9 +200,7 @@ ORDER BY max_distance DESC
 LIMIT 1;
 ```
 
-This returns a table with the longest distance by a trip each day sorted from longest to
-shortest and only the first record, which is the day for the longest trip:
-**`2019-10-31`**.
+This returns a table with the day of the longest trip, which is: **`2019-10-31`**.
 
 ## Question 5. Three biggest pickup zones
 
@@ -225,10 +223,9 @@ ORDER BY total_amount_per_location DESC
 LIMIT 3;
 ```
 
-This returns a table with the total amount per pickup location accross all trips for
-`2019-10-18` with a total amount over `13,000` and only the first three records, which are
-the zones with the highest amounts: **`East Harlem North`, `East Harlem South`,
-`Morningside Heights`**.
+This returns a table with at most three records with the zones with the largest total
+amount over `13,000` accross all trips for `2019-10-18`, which are: **`East Harlem North`,
+`East Harlem South`, `Morningside Heights`**.
 
 ## Question 6. Largest tip
 
@@ -248,14 +245,15 @@ FROM green_taxi_trips AS t
 JOIN zones AS zpu ON t."PULocationID" = zpu."LocationID"
 JOIN zones AS zdo ON t."DOLocationID" = zdo."LocationID"
 WHERE zpu."Zone" = 'East Harlem North'
+  AND extract(MONTH
+              FROM t.lpep_pickup_datetime) = 10
 GROUP BY do_zone
 ORDER BY max_tip_amount DESC
 LIMIT 1;
 ```
 
-This returns a table with the dropoff zones and the largest trip tip for a passenger
-picked up in "East Harlem North" and only the first record, which is the dropoff zone
-with the largest tip: **`JFK Airport`**.
+This returns a table with the dropoff zone with the largest trip tip for a passenger
+picked up in "East Harlem North" in October 2019, which is: **`JFK Airport`**.
 
 ## Question 7. Terraform Workflow
 
