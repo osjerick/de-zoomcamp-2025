@@ -1,0 +1,29 @@
+name: taxi-trips
+
+services:
+  db:
+    image: postgres:17
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ny_taxi
+    volumes:
+      - "./pg_data:/var/lib/postgresql/data:rw"
+    ports:
+      - "5432:5432"
+    networks:
+      - network
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin@pgadmin.com
+      - PGADMIN_DEFAULT_PASSWORD=pgadmin
+    ports:
+      - "8080:80"
+    networks:
+      - network
+
+networks:
+  network:
+    name: taxi-trips-network
