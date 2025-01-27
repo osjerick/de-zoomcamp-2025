@@ -273,4 +273,4 @@ Answers:
 
 ### Answer
 
-**`terraform init`, `terraform apply -auto-appove`, `terraform destroy`**.
+**`terraform init`, `terraform apply -auto-approve`, `terraform destroy`**.
