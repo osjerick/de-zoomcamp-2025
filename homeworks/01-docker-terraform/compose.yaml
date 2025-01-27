@@ -13,7 +13,7 @@ services:
       - "5432:5432"
     networks:
       - network
-  
+
   pgadmin:
     image: dpage/pgadmin4
     environment:
