@@ -1,0 +1,57 @@
+id: workflow-orchestration-answers
+namespace: homeworks
+
+description: Answers for the Data Engineering Zoomcamp 2025 Homework 2
+
+variables:
+  question_02_taxi: "green"
+  question_02_date: "2020-04-01"
+
+tasks:
+  - id: question_01
+    type: io.kestra.plugin.scripts.shell.Commands
+    outputFiles:
+      - "*.csv"
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    commands:
+      - wget -qO- https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2020-12.csv.gz | gunzip > output.csv && ls -l output.csv
+
+  - id: question_02
+    type: io.kestra.plugin.core.log.Log
+    message: "{{vars.question_02_taxi}}_tripdata_{{vars.question_02_date | date('yyyy-MM')}}.csv"
+
+  - id: question_03
+    type: io.kestra.plugin.jdbc.postgresql.Queries
+    sql: |
+      SELECT COUNT(*)
+      FROM yellow_tripdata
+      WHERE filename LIKE 'yellow_tripdata_2020-%.csv';
+    fetchType: FETCH_ONE
+
+  - id: question_04
+    type: io.kestra.plugin.jdbc.postgresql.Queries
+    sql: |
+      SELECT COUNT(*)
+      FROM green_tripdata
+      WHERE filename LIKE 'green_tripdata_2020-%.csv';
+    fetchType: FETCH_ONE
+
+  - id: question_05
+    type: io.kestra.plugin.jdbc.postgresql.Queries
+    sql: |
+      SELECT COUNT(*)
+      FROM yellow_tripdata
+      WHERE filename = 'yellow_tripdata_2021-03.csv';
+    fetchType: FETCH_ONE
+
+  - id: question_06
+    type: io.kestra.plugin.core.log.Log
+    message: "From the documentation, the answer is `timezone: America/New_York`"
+
+pluginDefaults:
+  - type: io.kestra.plugin.jdbc.postgresql
+    values:
+      url: jdbc:postgresql://pg-db:5432/ny_taxi
+      username: postgres
+      password: p0stgr3s
