@@ -97,7 +97,7 @@ the uncompressed file size (i.e. the output file `yellow_tripdata_2020-12.csv` o
 We can monitor the outputs of the `extract` task. There we can see the file size in `MiB`,
 which is **`128.3 MiB`**; however, the possible answers are in `MB`, so the correct answer
 is **`134.5 MB`**. Although this is correct, monitoring the output is required to be done
-in real time, since the task `purge_files` will remove everythin.
+in real time, since the task `purge_files` will remove everything.
 
 Another approach is to add a `size` task, which will output the size of the file in bytes:
 ```yaml
