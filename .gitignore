@@ -211,3 +211,4 @@ terraform.rc
 
 # Postgres data directories
 **/pg_data/*
+*.parquet
