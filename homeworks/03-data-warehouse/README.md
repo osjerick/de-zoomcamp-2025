@@ -21,7 +21,7 @@
 
 - Create an external table in the BigQuery dataset created (from the BQ console):
   ```sql
-  CREATE OR REPLACE EXTERNAL TABLE `< your project ID>.< your dataset ID >.external_yellow_tripdata`
+  CREATE OR REPLACE EXTERNAL TABLE `< your project ID >.< your dataset ID >.external_yellow_tripdata`
   OPTIONS (
     format = 'PARQUET',
     uris = ['gs://< your bucket name >/yellow_tripdata_2024-*.parquet']
@@ -31,7 +31,7 @@
 - Create a non-partitioned regular table in the BigQuery dataset created (from the BQ
   console and using the external table):
   ```sql
-  CREATE OR REPLACE TABLE `< your project ID>.< your dataset ID >.yellow_tripdata_non_partitioned` AS
+  CREATE OR REPLACE TABLE `< your project ID >.< your dataset ID >.yellow_tripdata_non_partitioned` AS
   SELECT * FROM `< your project ID>.< your dataset ID >.external_yellow_tripdata`;
   ```
 
@@ -152,11 +152,11 @@ The best strategy is **partition by `tpep_dropoff_datetime` and cluster on `Vend
 To create the table we can run the following query (using the materialized table):
 
 ```sql
-CREATE OR REPLACE TABLE `< your project ID>.< your dataset ID >.yellow_tripdata_partitioned`
+CREATE OR REPLACE TABLE `< your project ID >.< your dataset ID >.yellow_tripdata_partitioned`
 PARTITION BY
   DATE(tpep_dropoff_datetime)
   CLUSTER BY VendorID AS
-SELECT * FROM `< your project ID>.< your dataset ID >.yellow_tripdata_non_partitioned`;
+SELECT * FROM `< your project ID >.< your dataset ID >.yellow_tripdata_non_partitioned`;
 ```
 
 ## Question 6
