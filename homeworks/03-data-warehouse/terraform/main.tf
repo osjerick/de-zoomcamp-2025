@@ -35,5 +35,6 @@ resource "google_storage_bucket" "data-lake-bucket" {
 }
 
 resource "google_bigquery_dataset" "dataset" {
-  dataset_id = "taxi_data_${replace(var.common_id, "-", "_")}"
+  dataset_id                 = "taxi_data_${replace(var.common_id, "-", "_")}"
+  delete_contents_on_destroy = true
 }
