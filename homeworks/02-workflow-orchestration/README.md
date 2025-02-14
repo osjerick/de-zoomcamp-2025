@@ -123,6 +123,9 @@ we have the `question_01` task, which logs the size of the file in bytes with `l
 ```
 Whose output also is **`134,481,400 bytes`**, then the answer is **`134.5 MB`**.
 
+:warning: **[UPDATE]** They updated the possible answers to clarify they were expecting
+the *MiB* number; then the correct answer is **`128.3 MiB`**.
+
 ## Question 2
 
 What is the rendered value of the variable `file` when the inputs `taxi` is set to

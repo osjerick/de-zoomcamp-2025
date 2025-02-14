@@ -211,6 +211,10 @@ It is best practice in Big Query to always cluster your data:
 The answer is **True**; it's a best practice to use clustered and partitioned tables for
 cost reduction and query performance.
 
+:warning: **[UPDATE]** Using clustered and partitioned tables is a good practice; however,
+it is not always recommended; for example, for small tables, the improvement of costs
+and performance may not be significant. Then the correct answer is **False**.
+
 ## (Bonus: Not worth points) Question 9
 
 No Points: Write a `SELECT count(*)` query FROM the materialized table you created.
