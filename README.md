@@ -16,4 +16,4 @@ DataTalksClub Data Engineering Zoomcamp notes and homeworks.
 - Homework: [Data Warehouse and BigQuery](homeworks/03-data-warehouse/)
 
 ## Workshop 1: `dlt`
-- Homework: [notebook](homeworks/workshop-01-dlt/homework.ipynb)
+- Homework: [notebook](homeworks/workshop-01-dlt/)
