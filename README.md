@@ -15,5 +15,5 @@ DataTalksClub Data Engineering Zoomcamp notes and homeworks.
 - Notes: [Data Warehouse and BigQuery](https://osjerick.notion.site/Data-Warehouse-and-BigQuery-17b335a98316806c968deef990617f47)
 - Homework: [Data Warehouse and BigQuery](homeworks/03-data-warehouse/)
 
-## Workshop 1: `dlt`
-- Homework: [notebook](homeworks/workshop-01-dlt/)
+## Workshop 1
+- Homework: [Data Ingestion with `dlt`](homeworks/workshop-01-dlt/)
