@@ -209,6 +209,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-# Postgres data directories
+# Data
 **/pg_data/*
 *.parquet
+*.duckdb
