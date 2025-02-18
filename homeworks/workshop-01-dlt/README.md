@@ -52,10 +52,10 @@ Storage and BigQuery:
    transformer to run a `dlt` pipeline that stores the normalized data in a Google Cloud
    Storage bucket.
 2. [`load_yellow_taxi_data_gcs_2.py`](./load_yellow_taxi_data_gcs_2.py): Uses the
-   `dlt.resource` decorator with the function `data_files()` function to download the
-   data files into a temporary directory and yield `FileItemDict` instances, which are
-   required by the `read_parquet()` transformer. A pipeline is run with this resource
-   to store the normalized data in a GCS bucket.
+   `dlt.resource` decorator with the `data_files()` function to download the data files
+   into a temporary directory and yield `FileItemDict` instances, which are required by
+   the `read_parquet()` transformer. A pipeline is run with this resource to store the
+   normalized data in a GCS bucket.
 3. [`load_yellow_taxi_data_bq.py`](./load_yellow_taxi_data_bq.py): Same extraction logic
    as the previous example but storing the normalized data in a Google BigQuery dataset.
 
@@ -74,7 +74,7 @@ Or use environment variables.
 
 :warning: Notes:
 
-- I couldn't figure out how to download files in parallel while extracting
+- I couldn't figure out how to download files in parallel while extracting the data
 for approaches 2 and 3.
 - `dlt` documentation is deficient; it has many typos and is not intuitive to follow.
 Although it is a powerful tool, I wouldn't say I like the project's code structure and
