@@ -213,3 +213,7 @@ terraform.rc
 **/pg_data/*
 *.parquet
 *.duckdb
+
+# Credentials
+gcs.json
+secrets.toml
