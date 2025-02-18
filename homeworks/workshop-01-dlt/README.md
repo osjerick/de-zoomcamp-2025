@@ -73,9 +73,12 @@ client_email = "< your service account client email >"
 Or use environment variables.
 
 :warning: Notes:
-
+- I don't consider these optimal but samples on how we can use `dlt` to load data into
+Google Cloud Storage and BigQuery while downloading the data.
 - I couldn't figure out how to download files in parallel while extracting the data
 for approaches 2 and 3.
+- I couldn't figure out how to clean up the temporary files while the extraction
+progresses.
 - `dlt` documentation is deficient; it has many typos and is not intuitive to follow.
 Although it is a powerful tool, I wouldn't say I like the project's code structure and
 philosophy.
