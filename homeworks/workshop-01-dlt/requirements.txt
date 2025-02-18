@@ -1,0 +1,2 @@
+dlt[duckdb,bigquery,gs,alive-progress]
+google-cloud-bigquery-storage
