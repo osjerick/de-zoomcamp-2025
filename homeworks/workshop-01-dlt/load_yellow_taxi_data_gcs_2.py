@@ -72,7 +72,7 @@ if __name__ == "__main__":
     )
 
     with TemporaryDirectory(dir=".") as td:
-        download_dir = Path(td)
+        download_dir = Path(td).absolute()
         files = (
             data_files(months=MONTHS, download_dir=download_dir) | read_parquet()
         ).with_name("yellow_taxi_data")

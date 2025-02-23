@@ -47,7 +47,7 @@ if __name__ == "__main__":
     )
 
     with TemporaryDirectory(dir=".") as td:
-        download_dir = Path(td)
+        download_dir = Path(td).absolute()
         download_yellow_taxi_data(MONTHS, download_dir)
         files = (
             src_fs(bucket_url=download_dir.as_uri(), file_glob="*.parquet")
